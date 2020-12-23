@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel = "stylesheet" href = "{% static 'css/quiz.css' %}">
+    <script src = "{% static 'js/quiz.js' %}"></script>
+</head>
+<body bgcolor="aqua">
+    <h1 align="center">INTER SCHOOL QUIZ COMPETITION</h1>
+    <div id = "container">
+		<header>
+			<a href="/" class = "button">Go Back</a>
+			<h1>Gk quiz Question</h1>
+		</header>
+
+		<section>
+        <div id="display">
+            00:00:00
+        </div>
+
+        <div class="buttons">
+            <b> <button id="startStop" onclick="startStop()">Start</button> <button id="reset" onclick="reset()">Reset</button></b>
+        </div>
+			<div id = "results"></div>
+			<form name = "quizForm" onsubmit = "return submitAnswers(answers = [{% for q in questions %} '{{ q.Corrans }}' ,{% endfor %}])">
+			{% for q in questions %}
+				<h3> {{ q.id }}.  {{ q.Question }}</h3>
+				<input type = "radio"  name = "q{{ q.id }}" value = "a" id = "q1a">   a. {{ q.Option1 }}<br><br>
+				<input type = "radio"  name = "q{{ q.id }}" value = "b" id = "q1b">   b. {{ q.Option2 }}<br><br>
+				<input type = "radio"  name = "q{{ q.id }}" value = "c" id = "q1c">   c. {{ q.Option3 }}<br><br>
+				<input type = "radio"  name = "q{{ q.id }}" value = "d" id = "q1d">   d. {{ q.Option4 }}<br><br>
+
+			{% endfor %}
+
+				<br><br>
+
+				<input type = "submit" value = "Submit Answer"><br>
+
+			</form>
+			<br><br>
+
+		</section>
+    </div>
+
+      </body>
+</html>

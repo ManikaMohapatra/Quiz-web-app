@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body bgcolor="#adff2f">
+<h1 align="center" style="background: red">INTER SCHOOL QUIZ COMPETITION</h1>
+<table align="center">
+    <tr>
+        <th><img src="{% static 'images/Gk.jpg' %}" width="200" height="200"></th>
+        <th><img src="{% static 'images/science.jpg' %}" width="200" height="200"></th>
+        <th><img src="{% static 'images/sports.jpg' %}" width="200" height="200"></th>
+    </tr>
+    <th><a href="{% url 'gkquiz' %}">Start</a></th>
+    <th><a href="{% url 'sciencequiz' %}">Start</a></th>
+    <th><a href="{% url 'sportsquiz' %}">Start</a></th>
+    </tr>
+</table>
+
+</body>
+</html>
